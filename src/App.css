@@ -1,38 +1,244 @@
-.App {
-  text-align: center;
+body{
+  color:white;
+  width:100vww;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.MainContainer{
+  height: 100%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.HeaderContainer{
+  background-color:rgb(255, 255, 255);
+  color:black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width:100%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.InnerBoxContainer{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  height: 100%;
+  background-image: linear-gradient(to left bottom,#000428,#004e92);
+}
+.CamContainer{
+  width:700px;
+  margin:30px;
+}
+.textBoxContainer{
+  margin: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap:1rem;
+}
+.LogoContainer{
+  display:flex;
+  flex-direction:row;
+  gap:1rem;
+  align-items: center;
+  width:350px;
+}
+.eyeLogo{
+  font-size: 35px;
+  margin:20px;
+  margin-right:0px;
+}
+.BatchContainer{
+  margin-right:30px;
+}
+.Footer{
+  background-color:rgb(238, 238, 238);
+  display:flex;
+  flex-direction:column;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin:0px;
+  padding:20px;
+  color:black;
+}
+.slider{
+  width:500px;
+}
+.SliderContainer{
+  width:500px;
+}
+.slick-prev:before, .slick-next:before{
+  color:black !important;
+}
+.title{
+  font-size:20px;
+}
+.WebcamReact{
+      position:absolute;
+}
+.WebcamReact1{
+  display: none;
+}
+.webCam{
+  width:640px;
+  height:480px;
+  z-index:9;
+  position:absolute;
+}
+.screenShot{
+  width:300px;
+}
+.webCam1{
+  z-index:9;
+  position:absolute;
+}
+.sliderItem{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width:500px;
+}
+.profile{
+  border-radius: 50%;
+  height: 150px;
+  width:150px;
+}
+.profileMe{
+  width:180px;
+  height: 180px;
+  border-radius: 50%;
+}
+.imageContainer{
+  margin: 10px;
+}
+.AboutContainer{
+  padding: 20px;
+}
+.About{
+  padding:30px;
+}
+.AboutBox{
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.AboutHead{
+  font-size: 32px;
+}
+.AboutTitle{
+  line-height: 1cm;
+  font-size: 16px;
+  width: 80vw;
+}
+.line{
+  
+  margin-top: 70vh;
+  width:80vw;
+}
+.captureButton{
+  width:150px;
+  height: 50px;
+  background-color: rgb(0, 145, 255);
+  color:white;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 15px;
+}
+.MainWork{
+  display: flex;
+  flex-direction: row;
+  
+}
+.into{
+  border: none;
+  background-color: red;
+  font-weight: 700;
   color: white;
+  cursor:pointer;
+  margin-left:300px;
+  border-radius: 50%;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width:360px){
+  body{
+    background-color: white;
   }
-  to {
-    transform: rotate(360deg);
+  .CamContainer{
+    display: none;
+  }
+  .webCam{
+    display: none;
+  }
+  .WebcamReact1{
+    display: block;
+    margin-left: 50px;
+  }
+  .line{
+    margin-top: 30px;
+  }
+  .captureButton{
+    width:100px;
+    height: 30px;
+  }
+  .webcam2{
+    width:200px;
+    height: 200px;
+  }
+  .MainWork{
+    width:360px;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .sliderItem{
+    display: flex;
+    flex-direction: column;
+    width:300px;
+  }
+  .InnerBoxContainer{
+    padding-top: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100vw;
+    height:100%;
+  }
+  .BatchContainer{
+    font-size: 10px;    
+  }
+  .SliderContainer{
+    width:300px;
+  }
+  .slider{
+    width:300px;
+  }
+  .LogoContainer{
+    width:200px;
+  }
+  .WebcamReact{
+    display: none;
+  }
+  .screenShot{
+    display: none;
+  }
+  .About{
+    padding:10px;
+  }
+  .AboutBox{
+   margin:10px;
+   padding: 5px;
+  }
+  .AboutHead{
+    font-size: 28px;
+  }
+  
+  .AboutTitle{
+    line-height: 0.6cm;
+    font-size: 12px;
+    width: 80vw;
+  }
+  .profile{
+
   }
 }
