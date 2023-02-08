@@ -160,7 +160,7 @@ body{
   border-radius: 50%;
 }
 
-@media (max-width:360px){
+@media (max-width:500px){
   body{
     background-color: white;
   }
