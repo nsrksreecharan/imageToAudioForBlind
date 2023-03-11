@@ -77,7 +77,7 @@ class App extends Component {
   };
 
   speak1 = (object) => {
-    if(SpeakNumber1==150){
+    if(SpeakNumber1==20){
       SpeakNumber1=0;
       pastObjects1=[];
     }
