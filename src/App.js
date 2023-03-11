@@ -23,7 +23,8 @@ class App extends Component {
     imageUrl: null,
     classes1:[],
     classes:[],
-    text:""
+    text:"",
+    videoId:""
   };
 
   constructor(props) {
@@ -34,6 +35,14 @@ class App extends Component {
   }
 
   componentDidMount() {
+    const getDevices = async () => {
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      const videoDevices = devices.filter(device => device.kind === 'videoinput');
+      if (videoDevices.length > 1) {
+        this.setState({videoId:videoDevices[1].deviceId});
+      }
+    };
+    getDevices();
    this.runCoco();
   }
 
@@ -133,7 +142,7 @@ class App extends Component {
   };
 
   render() {
-    const {text,classes,classes1,imageUrl}=this.state
+    const {text,classes,classes1,imageUrl,videoId}=this.state
     return (
       <div className="MainContainer">
         <div className="HeaderContainer">
@@ -152,6 +161,7 @@ class App extends Component {
                   ref={this.webcamRef1}
                   muted={true}
                   style={{height:200,width:250}}
+                  videoConstraints={{ videoId }}
                   className="webCam2"
                   id="webcam"
                 />
