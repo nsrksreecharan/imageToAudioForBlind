@@ -17,6 +17,10 @@ var Classes1=[]
 var Objects=[]
 var pastObjects=[]
 var SpeakNumber=0;
+
+var Objects1=[]
+var pastObjects1=[]
+var SpeakNumber1=0;
 class App extends Component {
 
   state = {
@@ -72,6 +76,24 @@ class App extends Component {
     pastObjects=[...Objects]
   };
 
+  speak1 = (object) => {
+    if(SpeakNumber1==150){
+      SpeakNumber1=0;
+      pastObjects1=[];
+    }
+    let LatestObjects=[]
+    const synth = window.speechSynthesis;
+    const newObject=[...new Set(object)];
+    Objects1=[...newObject];
+    let checkArray= pastObjects1.join(" ")==Objects1.join(" ")
+    if(checkArray==false){
+      LatestObjects=Objects1.filter((i)=>pastObjects1.includes(i)==false)
+      const utterance = new SpeechSynthesisUtterance(`${LatestObjects.join(" ")} detected`);
+      synth.speak(utterance);
+    }
+    pastObjects1=[...Objects1]
+  };
+
   detect = async (net) => {
     if (
       typeof this.webcamRef1.current !== "undefined" &&
@@ -85,6 +107,10 @@ class App extends Component {
         classes1=[...new Set(classes1)]
         obj.forEach((i) => classes1.push(i.class));
         this.setState({classes1})
+        Objects1=[...Objects1,...classes1]
+        SpeakNumber1++;
+        this.speak1(Objects1)
+        
     }
     if (
       typeof this.webcamRef.current !== "undefined" &&
@@ -144,6 +170,9 @@ class App extends Component {
   render() {
     const {text,classes,classes1,imageUrl,videoId}=this.state
     console.log(videoId)
+    const videoConstraints = {
+      facingMode: { exact: "environment" }
+    };
     return (
       <div className="MainContainer">
         <div className="HeaderContainer">
@@ -162,7 +191,7 @@ class App extends Component {
                   ref={this.webcamRef1}
                   muted={true}
                   style={{height:200,width:250}}
-                  videoConstraints={{ videoId }}
+                  videoConstraints={videoConstraints}
                   className="webCam2"
                   id="webcam"
                 />
