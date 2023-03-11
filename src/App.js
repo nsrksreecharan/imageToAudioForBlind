@@ -143,6 +143,7 @@ class App extends Component {
 
   render() {
     const {text,classes,classes1,imageUrl,videoId}=this.state
+    console.log(videoId)
     return (
       <div className="MainContainer">
         <div className="HeaderContainer">
