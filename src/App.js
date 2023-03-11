@@ -14,7 +14,9 @@ import "slick-carousel/slick/slick-theme.css";
 
 var Classes=[]
 var Classes1=[]
-
+var Objects=[]
+var pastObjects=[]
+var SpeakNumber=0;
 class App extends Component {
 
   state = {
@@ -43,7 +45,23 @@ class App extends Component {
     }, 1);
   };
 
-
+  speak = (object) => {
+    if(SpeakNumber==150){
+      SpeakNumber=0;
+      pastObjects=[];
+    }
+    let LatestObjects=[]
+    const synth = window.speechSynthesis;
+    const newObject=[...new Set(object)];
+    Objects=[...newObject];
+    let checkArray= pastObjects.join(" ")==Objects.join(" ")
+    if(checkArray==false){
+      LatestObjects=Objects.filter((i)=>pastObjects.includes(i)==false)
+      const utterance = new SpeechSynthesisUtterance(`${LatestObjects.join(" ")} detected`);
+      synth.speak(utterance);
+    }
+    pastObjects=[...Objects]
+  };
 
   detect = async (net) => {
     if (
@@ -80,6 +98,11 @@ class App extends Component {
       const classes = Classes;
       obj.forEach((i) => classes.push(i.class));
       this.setState({classes})
+      Objects=[...Objects,...classes]
+      SpeakNumber++;
+      this.speak(Objects)
+      console.log(SpeakNumber)
+      
     }
     
   };
