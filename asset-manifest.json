@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/imageToAudioForBlind/static/css/main.81013e78.css",
-    "main.js": "/imageToAudioForBlind/static/js/main.6193471e.js",
+    "main.js": "/imageToAudioForBlind/static/js/main.6ef5d16b.js",
     "static/js/787.fd054f9a.chunk.js": "/imageToAudioForBlind/static/js/787.fd054f9a.chunk.js",
     "static/media/slick.svg": "/imageToAudioForBlind/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/imageToAudioForBlind/static/media/slick.a4e97f5a2a64f0ab1323.eot",
@@ -9,11 +9,11 @@
     "static/media/slick.woff": "/imageToAudioForBlind/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/imageToAudioForBlind/index.html",
     "main.81013e78.css.map": "/imageToAudioForBlind/static/css/main.81013e78.css.map",
-    "main.6193471e.js.map": "/imageToAudioForBlind/static/js/main.6193471e.js.map",
+    "main.6ef5d16b.js.map": "/imageToAudioForBlind/static/js/main.6ef5d16b.js.map",
     "787.fd054f9a.chunk.js.map": "/imageToAudioForBlind/static/js/787.fd054f9a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.81013e78.css",
-    "static/js/main.6193471e.js"
+    "static/js/main.6ef5d16b.js"
   ]
 }
