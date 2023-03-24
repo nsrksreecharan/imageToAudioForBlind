@@ -62,6 +62,7 @@ class App extends Component {
     if(SpeakNumber==150){
       SpeakNumber=0;
       pastObjects=[];
+      Objects=[];
     }
     let LatestObjects=[]
     const synth = window.speechSynthesis;
@@ -77,18 +78,15 @@ class App extends Component {
   };
 
   speak1 = (object) => {
-    if(SpeakNumber1==20){
+    if(SpeakNumber1==150){
       SpeakNumber1=0;
       pastObjects1=[];
+      Objects1=[];
     }
     let LatestObjects=[]
     const synth = window.speechSynthesis;
-    const newObject=[...new Set(object)];
-    Objects1=[...newObject];
-    let checkArray= pastObjects1.join(" ")==Objects1.join(" ")
-    if(checkArray==false){
-      LatestObjects=Objects1.filter((i)=>pastObjects1.includes(i)==false)
-      const utterance = new SpeechSynthesisUtterance(`${LatestObjects.join(" ")} detected`);
+    if(object.length){
+      const utterance = new SpeechSynthesisUtterance(`${object} detected`);
       synth.speak(utterance);
     }
     pastObjects1=[...Objects1]
@@ -107,9 +105,8 @@ class App extends Component {
         classes1=[...new Set(classes1)]
         obj.forEach((i) => classes1.push(i.class));
         this.setState({classes1})
-        Objects1=[...Objects1,...classes1]
         SpeakNumber1++;
-        this.speak1(Objects1)
+        this.speak1([...classes1].pop())
         
     }
     if (
